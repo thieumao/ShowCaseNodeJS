@@ -50,7 +50,7 @@ const crawlData = (id, url) => {
           };
           dataList.push(JSON.stringify(obj));
         } else if (index == 1) {
-          const content2 = $(this).find("#content1 > div > p").text();
+          const content2 = $(this).find("#content1 > div > p").text().trim();
           console.log(content2);
           const obj = {
             title: title,
