@@ -75,7 +75,7 @@ const crawlData = (id, url) => {
         title: arr,
       };
       // JSON.stringify(data)
-      fs.writeFile(`data/${id}.txt`, `[${dataList.toString()}]`, function (err) {
+      fs.writeFile(`data/${id}.json`, `[${dataList.toString()}]`, function (err) {
         if (err) {
           console.log(err);
         } else {
