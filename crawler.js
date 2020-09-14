@@ -31,7 +31,7 @@ const crawlData = (id, url) => {
       let $ = cheerio.load(body);
       $("#content1").each(function (index) {
         console.log("index = ", index);
-        const title = $(this).find("h1").text();
+        const title = $(this).find("h1").text().trim();
         arr.push(title);
 
         if (index == 0) {
@@ -50,11 +50,11 @@ const crawlData = (id, url) => {
           };
           dataList.push(JSON.stringify(obj));
         } else if (index == 1) {
-          const content2 = $(this).find("#content1 > div > p").text().trim();
+          const content2 = $(this).find("#content1 > div > p").text();
           console.log(content2);
           const obj = {
             title: title,
-            content: content2,
+            content: content2.trim(),
           };
           dataList.push(JSON.stringify(obj));
         } else if (index == 2) {
