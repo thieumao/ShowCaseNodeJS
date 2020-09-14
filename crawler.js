@@ -5,7 +5,7 @@ const fs = require("fs");
 // const URL = "http://ncs.niteco.se/bemz/";
 
 const readList = async () => {
-  const jsonString = await fs.readFileSync('list.json', "utf8");
+  const jsonString = await fs.readFileSync('data/list.json', "utf8");
   const json = JSON.parse(jsonString);
   const caseStudies = json["caseStudies"];
   // console.log(json);
