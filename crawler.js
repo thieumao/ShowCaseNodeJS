@@ -71,12 +71,25 @@ const crawlData = (id, url) => {
           dataList.push(JSON.stringify(obj));
         }
       });
+      console.log('img === ');
+      let imageArr = [];
+      $(body).find('img').each(function (i, e) {
+        console.log(i);
+        // console.log(e);
+        console.log(e['attribs']['src']);
+        const fileName = e['attribs']['src'];
+        imageArr.push(`${url}${fileName}`);
+      });
       const obj = {
-        logo: `${url}logo.png`,
-        ipad: `${url}ipad-image.png`,
-        responsive: `${url}responsive.png`
+        images: imageArr
       };
       dataList.push(JSON.stringify(obj));
+      // const obj = {
+      //   logo: `${url}logo.png`,
+      //   ipad: `${url}ipad-image.png`,
+      //   responsive: `${url}responsive.png`
+      // };
+      // dataList.push(JSON.stringify(obj));
       // JSON.stringify(data)
       fs.writeFile(`data/${id}.json`, `[${dataList.toString()}]`, function (err) {
         if (err) {
