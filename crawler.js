@@ -57,7 +57,7 @@ request(URL, function (err, res, body) {
       title: arr,
     };
     // JSON.stringify(data)
-    fs.writeFile("data.txt", `[${dataList.toString()}]`, function (err) {
+    fs.writeFile("data/data.txt", `[${dataList.toString()}]`, function (err) {
       if (err) {
         console.log(err);
       } else {
