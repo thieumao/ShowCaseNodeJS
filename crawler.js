@@ -71,9 +71,12 @@ const crawlData = (id, url) => {
           dataList.push(JSON.stringify(obj));
         }
       });
-      const data = {
-        title: arr,
+      const obj = {
+        logo: `${url}logo.png`,
+        ipad: `${url}ipad-image.png`,
+        responsive: `${url}responsive.png`
       };
+      dataList.push(JSON.stringify(obj));
       // JSON.stringify(data)
       fs.writeFile(`data/${id}.json`, `[${dataList.toString()}]`, function (err) {
         if (err) {
