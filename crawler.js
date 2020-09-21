@@ -79,7 +79,7 @@ const crawlData = (id, url) => {
         console.log(e['attribs']['src']);
         const fileName = e['attribs']['src'];
         const imgUrl = `${url}${fileName}`;
-        imageArr.push(fileName);
+        imageArr.push(`data/images/${id}-${fileName}`);
         request(imgUrl).pipe(fs.createWriteStream(`data/images/${id}-${fileName}`))
       });
       const obj = {
