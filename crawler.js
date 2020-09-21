@@ -15,6 +15,7 @@ const readList = async () => {
     // console.log(caseStudies[index]);
     console.log(item['id']);
     console.log(item['link']);
+    await request(item['img']).pipe(fs.createWriteStream(`data/list/${item['id']}.png`))
     await crawlData(item['id'], item['link']);
   }
 };
