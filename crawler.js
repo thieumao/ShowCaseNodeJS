@@ -78,7 +78,9 @@ const crawlData = (id, url) => {
         // console.log(e);
         console.log(e['attribs']['src']);
         const fileName = e['attribs']['src'];
-        imageArr.push(`${url}${fileName}`);
+        const imgUrl = `${url}${fileName}`;
+        imageArr.push(fileName);
+        request(imgUrl).pipe(fs.createWriteStream(`data/images/${id}-${fileName}`))
       });
       const obj = {
         images: imageArr
